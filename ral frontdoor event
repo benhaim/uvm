@@ -1,0 +1,50 @@
+
+// degine uvm_event associative array in the config class
+uvm_event                   reg_access[string];
+
+// extend the RAL callback to handle events
+// and assign those events to the pool according to name
+class demo_uvm_reg_cbs extends uvm_reg_cbs;
+    
+    `uvm_object_utils(demo_uvm_reg_cbs)
+
+    uvm_event   reg_access;
+  
+    function new(string name = "demo_uvm_reg_cbs");
+        super.new(name);
+    endfunction: new
+
+    virtual task post_write(uvm_reg_item rw);
+        reg_access = uvm_event_pool::get_global($sformatf("reg_%s_access",rw.element.get_name()));
+        reg_access.trigger;
+    endtask
+
+endclass
+
+// in the env/agent declare, create and assign the callback
+// also create the events according to the registers' names
+demo_uvm_reg_cbs demo_uvm_reg_cbs_i;
+
+function new....
+  demo_uvm_reg_cbs_i = new("demo_uvm_reg_cbs_i");
+  ...
+  
+function void build_phase(uvm_phase phase);
+  uvm_reg 		registers[$];
+  ...
+  demo_regmodel.get_registers(registers);
+  foreach (registers[i]) begin
+      uvm_reg_cb::add(registers[i],demo_uvm_reg_cbs_i);
+      env_cfg.reg_access[registers[i].get_name()] = new();
+      env_cfg.reg_access[registers[i].get_name()] = uvm_event_pool::get_global($sformatf("reg_%s_access",registers[i].get_name()));
+  end
+  
+// somewhere completely different
+task run_phase(uvm_phase phase);
+  fork
+    forever begin
+	    env_cfg.reg_access["specific_reg_name"].wait_trigger;
+      do_something_when_this_register_is_accessed();
+    end
+  join_none
+endtask : run_phase
