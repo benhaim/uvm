@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation='http://www.accellera.org/ XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd'>
+ <ipxact:vendor>accellera.org</ipxact:vendor>
+ <ipxact:library>ug</ipxact:library>
+ <ipxact:name>ip</ipxact:name>
+ <ipxact:version>1.0</ipxact:version>
+ <ipxact:memoryMaps>
+   <ipxact:memoryMap>
+     <ipxact:name>some_name_for_top_level</ipxact:name>
+     <ipxact:addressBlock>
+       <ipxact:name>name_of_the_reg_block</ipxact:name>
+       <ipxact:width>32</ipxact:width>
+       <ipxact:memoryOffset>0x0</ipxact:memoryOffset>
+       <ipxact:range>0x1000</ipxact:range>
+       <ipxact:register>
+         <ipxact:name>clock_config</ipxact:name>
+         <ipxact:size>32</ipxact:size>
+         <ipxact:addressOffset>0x0</ipxact:addressOffset>
+         <ipxact:field>
+           <ipxact:name>clock_frquency</ipxact:name>
+           <ipxact:bitWidth>15</ipxact:bitWidth>
+           <ipxact:bitOffset>0</ipxact:bitOffset>
+           <ipxact:access>read-write</ipxact:access>
+           <ipxact:reset>0</ipxact:reset>
+           <ipxact:description>expected clock frequency"</ipxact:description>
+         </ipxact:field>
+       </ipxact:register>
+     </ipxact:addressBlock>
+   </ipxact:memoryMap>
+ </ipxact:memoryMaps>
+</ipxact:component>
