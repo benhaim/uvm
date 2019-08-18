@@ -1,0 +1,16 @@
+
+# this file should be sourced
+# tcsh
+
+# complete run script flags
+# some command to collect list of strings from script body
+set run_script_flags = `grep case $SCRIPTS/run_test.csh | grep : | sed 's/case//' | tr -d '"' | cut -d':' -f1`
+
+# complete test names
+# list all test filess as strings
+set list_all_tests = `find $TESTS/ -type f -printf '%f\n'`
+
+
+complete run_test 'n/-t/$list_all_tests/' \
+                  'n/-test/$list_all_tests/' \
+                  'p/*/$run_script_flags/'
