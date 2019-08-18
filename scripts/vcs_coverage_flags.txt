@@ -1,0 +1,16 @@
+
+add to vcs:
+  -cm line+cond+fsm+toggle
+  -cm_dir <dir> // generate central location
+  -cm_hier code_cov_hier.tree
+
+code_cov_hier.tree, looks like:
+"
++tree top_tb.top
+"
+  
+add to simv
+  -cm line+cond+fsm+toggle
+  -cm_dir <dir> // generate central location
+  -cm_name <name> // give different name for each test
+  
