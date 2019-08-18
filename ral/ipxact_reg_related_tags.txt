@@ -1,0 +1,24 @@
+*high level*
+ipxact:memoryMaps
+ipxact:memoryMap
+ipxact:addressBlock
+
+*addressBlock*
+ipxact:memoryOffset - relative to the higher level
+ipxact:name
+ipxact:range - address range
+ipxact:width - width in bits //verify
+
+*registers*
+ipxact:dim - register array
+ipxact:name
+ipxact:size - width in bits
+ipxact:addressOffset
+
+*registers fields*
+ipxact:name
+ipxact:bitWidth
+ipxact:bitOffset
+ipxact:access
+ipxact:reset
+ipxact:description
