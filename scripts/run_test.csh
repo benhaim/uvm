@@ -167,4 +167,58 @@ endif
 
 
 
+####################################
+# 
+#   manage the sufix
+#
+if ( $sufix != "" ) then
+    if ( $sufix == "seed" ) then
+        set sufix = "_${seed}"  
+    else
+        set sufix = "_${sufix}"
+    endif
+endif
+
+
+##################################
+#
+#   get UTC time before SIMV
+#
+@ simv_start_utc = `date +%s`
+
+
+    ##################################
+    #
+    #     if test is folder copy supported files
+    #
+    if ( -d $TESTS/$test ) then
+        \cp $TESTS/$test/* .
+    endif
+
+
+    if ( "$dump_waves" != "" ) then
+        \rm -f setup_vcs.do
+        ## make test generate dumps and run and stop
+        echo "fsdbDumpfile dut.fsdb"         >> setup_vcs.do
+        echo "fsdbDumpvars 0 {$top_module} +mda" >> setup_vcs.do
+        if ( "$gui" == "" ) then # if not running with gui run the test
+            echo run                         >> setup_vcs.do
+            echo quit                        >> setup_vcs.do
+        endif
+    endif
+
+    if ( "$cov_str" != "" ) then
+        set cm_name = " -cm_name ${test}${sufix}"  # uniqu name for each test coverage results
+    endif
+
+
+   ##  +UVM_MAX_QUIT_COUNT=<number>
+   ##  +UVM_VERBOSITY=<verbosity_string>
+   
+   
+    echo "RUN SCRIPT: run SIMV simulation (started `date +%H:%M:%S`)"
+    ./simv  +UVM_TESTNAME=$test +ntb_stop_on_constraint_solver_error=1 \
+                       +ntb_random_seed=${seed} $dump_waves  \
+                      -l sim.log $simv_args $gui $cov_str $cm_name
+
 
