@@ -13,16 +13,16 @@
        <ipxact:memoryOffset>0x0</ipxact:memoryOffset>
        <ipxact:range>0x1000</ipxact:range>
        <ipxact:register>
-         <ipxact:name>clock_config</ipxact:name>
+         <ipxact:name>some_register_name</ipxact:name>
          <ipxact:size>32</ipxact:size>
          <ipxact:addressOffset>0x0</ipxact:addressOffset>
          <ipxact:field>
-           <ipxact:name>clock_frquency</ipxact:name>
+           <ipxact:name>some_field_name</ipxact:name>
            <ipxact:bitWidth>15</ipxact:bitWidth>
            <ipxact:bitOffset>0</ipxact:bitOffset>
            <ipxact:access>read-write</ipxact:access>
            <ipxact:reset>0</ipxact:reset>
-           <ipxact:description>expected clock frequency"</ipxact:description>
+           <ipxact:description>some field description</ipxact:description>
          </ipxact:field>
        </ipxact:register>
      </ipxact:addressBlock>
