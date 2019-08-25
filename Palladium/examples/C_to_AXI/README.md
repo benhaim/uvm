@@ -16,9 +16,12 @@ The C code reads a single command from a text file “command.txt”, the comman
  - write  address   data  	- for example “write 0x24 0x1234567”
  - read   address 		- for example “read 0xa10” 
  - init			- will force all AXI bus to its reset values
+ 
 The C code is triggered by the AXI driver every clock cycle, so it is constantly looking for a file.
 Once a “command.txt” file is found with command different from the last executed, the file will be deleted.
 A read command will result in a file “read_data.txt” with the command “read”, the address and the data read from that address.
+
+![some overview scheme](c_axi_demo.png)
 
 ### Demo Content
 Delivery consists of 7 files:
