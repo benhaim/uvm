@@ -1,0 +1,2 @@
+clockOption -add { technology CAKE 2 }
+clockFrequency -add { top_tb.dut_i.dut_clock 4 MHz }
