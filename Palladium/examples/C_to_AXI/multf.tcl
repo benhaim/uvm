@@ -7,7 +7,7 @@ xeset retryInterval 20
 # point to the compiled design
 debug $env(EMU_COMPILE)/.
 
-# point to the host (since we are runnign from lnx04 this is ".")
+# point to the host (if not running on host specify its name instead of the ".")
 host .
 
 # switch to TBrun mode, where the palladium
