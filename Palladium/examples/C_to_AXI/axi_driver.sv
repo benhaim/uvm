@@ -70,7 +70,6 @@ interface axi_master_driver_if();
     //
     //     AXI clock by Palladium
     //
-    // this clock simulated the uC (CEVA) AXI clock
     // the AXI_FREQ_MHZ define is defined in the top tb
     reg axi_clock;
     initial axi_clock = 0;
