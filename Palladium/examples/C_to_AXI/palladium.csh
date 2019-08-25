@@ -32,10 +32,10 @@ end
 
 #################################
 #
-#   make sure user is on lnx04
+#   make sure user is on palladium host
 #
-if ( $HOST != "lnx04" ) then
-    echo "\n        -Error: this script must run from lnx04, please ssh there\n" 
+if ( $HOST != "palladium_host_name" ) then
+    echo "\n        -Error: this script must run from palladium host, please ssh there\n" 
     exit 1
 endif
 
@@ -53,13 +53,12 @@ endif
 #   define env variables
 #   and source and targe folders
 #
-setenv UXE_HOME /tools/cadence/uxe/17.10.000/
+setenv UXE_HOME /delivery/tools/cadence/uxe/UXE171/
 setenv PATH ${PATH}:$UXE_HOME/tools/bin
 # folder where the delivery is at:
 setenv EMU_ROOT $PWD
 # folder where the results will be generated:
 set results_folder = $PWD/results
-#set results_folder = /space/users/$USER/emulation_results
 
 
 #################################
