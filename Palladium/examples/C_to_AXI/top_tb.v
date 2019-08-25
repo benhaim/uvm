@@ -1,15 +1,12 @@
 `timescale 1ns/1ns
 
 // this define is the freq of the AXI driver
-// simulating the CEVA uC
 `define AXI_FREQ_MHZ    400
 
-// on the right, commented, are the values
-// in Auto-Talks's NOC design
-`define AXI_ID_W        4  // 8  // width of ID fields
-`define AXI_ADDR_W      12 // 64 // address width
-`define AXI_DATA_W      32 // 64 // data symbol width 
-`define AXI_NUMBYTES    4  // 8  // number of bytes per word
+`define AXI_ID_W        4  // width of ID fields
+`define AXI_ADDR_W      12 // address width
+`define AXI_DATA_W      32 // data symbol width 
+`define AXI_NUMBYTES    4  // number of bytes per word
 
 
 ////////////////////////////////////
@@ -19,7 +16,7 @@
 //  this TB wraps both the DUT running on 
 //  the Palladium, and the AXI driver, which
 //  is not synthesable and actually only
-//  runs on the server, and coonects them.
+//  runs on the server, and connects them.
 //
 module top_tb();
     
@@ -54,11 +51,8 @@ module top_tb();
     
     ////////////////////////////////
     //
-    //  the below commented force are
-    //  to ease Ran's work of copy-past, 
-    //  as those ports exists in the 
-    //  dut_wrapper module
-    //  
+    //  the below commented force are to ease the copy-past, 
+    //  as those ports exists in the dut_wrapper module
     //
     //        // AXI read address bus ---------------------------------------
     //	/*input  [31:0] */  initial force dut_i.host_axim_Ar_Addr   = axi_if.ARADDR;
