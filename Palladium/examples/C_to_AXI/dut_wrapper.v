@@ -5,13 +5,10 @@ module dut_wrapper();
     //
     //        AXI DUMMY MEMORY
     //
-    //  this memory was briefly composed to allow
-    //  communication via the AXI bus. the flows
-    //  used here should not be considered correct
-    //  ane wehe based on online examples
+    //  this memory allows communication via the AXI bus. the flows
+    //  used here should not be considered correct and was based on online examples
     //
-    //  memory size determined by the defines from
-    //  the top TB.
+    //  memory size determined by the defines from the top TB.
     //
     reg dut_clock; // driven by the Palladium
 
@@ -44,9 +41,8 @@ module dut_wrapper();
 
     ////////////////////////////////
     //
-    //  the below I/F is to ease Ran's
-    //  work of copy-past, as those ports
-    //  are already in the TB (commented).
+    //  the below I/F is to ease the copy-past, as those 
+    //  ports are already in the TB (commented).
     //
     logic [31:0] host_axim_Ar_Addr       ;
     logic [1:0]  host_axim_Ar_Burst      ;
