@@ -39,14 +39,18 @@ The main script palladium.csh is a very short script which sets the environment 
 
 ### Usage
 To compile and run the demo design do (“delivery_folder” is full path to where the delivery is located):
-	> ssh lnx04
-	> cd delivery_folder
-	> palladium.csh -c -r
+```
+ssh lnx04
+cd delivery_folder
+palladium.csh -c -r
+```
 This will compile and run the design, it will open the “XErun>” terminal.
 
 Now, in another terminal, execute writes and reads by writing and reading files:
-	> echo “init” > delivery_folder/results/run/command.txt
-	> echo “write 0x24 0x1234” > delivery_folder/results/run/command.txt
-	> echo “write 0x25 0xabcd” > delivery_folder/results/run/command.txt
-	> echo “read 0x24” > delivery_folder/results/run/command.txt
-	> cat delivery_folder/results/run/read_data.txt
+```
+echo “init” > delivery_folder/results/run/command.txt
+echo “write 0x24 0x1234” > delivery_folder/results/run/command.txt
+echo “write 0x25 0xabcd” > delivery_folder/results/run/command.txt
+echo “read 0x24” > delivery_folder/results/run/command.txt
+cat delivery_folder/results/run/read_data.txt
+```
