@@ -21,7 +21,7 @@ The C code is triggered by the AXI driver every clock cycle, so it is constantly
 Once a “command.txt” file is found with command different from the last executed, the file will be deleted.
 A read command will result in a file “read_data.txt” with the command “read”, the address and the data read from that address.
 
-![some overview scheme](c_axi_demo.png width="100" height="100")
+<img src="c_axi_demo.png" width="200">
 
 ### Demo Content
 Delivery consists of 7 files:
