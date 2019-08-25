@@ -45,7 +45,7 @@ The main script palladium.csh is a very short script which sets the environment 
 ### Usage
 To compile and run the demo design do (“delivery_folder” is full path to where the delivery is located):
 ```
-ssh lnx04
+ssh palladium_server
 cd delivery_folder
 palladium.csh -c -r
 ```
