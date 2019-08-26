@@ -2,7 +2,7 @@
 
 # print usage to screen
 alias usage " \
-    echo '\n  Usage:\n\n    >> runt.csh -t|test <test_name> -setup_name <setup name>'   \
+    echo '\n  Usage:\n\n    >> runt.csh -t|test <test_name> [-g/-w/-cov/...]'   \
     echo '\n  Flags:\n' \
     \grep case $0 | \grep -v grep | sed 's/case//' | tr -d '#"\""' \
     echo "
@@ -87,19 +87,20 @@ end
 # verify user under the sourced WA tree
 set wa_name = `basename $WA_ROOT`
 echo $PWD/ | grep "/$wa_name/" -q
-verify_operation $status "you sourced setproj under $WA_ROOT, and you are at $PWD. some of the env variables may not be what you mean" 
+if ( $status != 0 ) then
+    printf "\n   - Error: you sourced setproj under $WA_ROOT, and you are at $PWD. some of the env variables may not be what you mean\n"
+    exit 1
+endif
 
 # remove extension from testname
 set test = `basename $test .sv`
 # verify test exists before compiling (to spare compilation of non existing test)
 find $TESTS/ -name $test.sv | grep . -q
-verify_operation $status "test $test does not exist" 
-
-if ( $setup_name == "" ) then
-    printf "\n\033[1;31m  Compilation failed\033[0m\n"
-    printf "\n  flag -setup_name <setup name>  is missing\n\n"
+if ( $status != 0 ) then
+    printf "\n   - Error: test $test does not exist\n"
     exit 1
 endif
+    
 
 
 ####################################
