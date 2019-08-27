@@ -2,7 +2,7 @@ this is a working example of palladium running AXI driver which is controlled by
 
 ### Tools and Server
 ##### UXE171 (Cadence Palladium package)
-an environment variable $UVM_HOME should be added pointing to Cadence UXE (something like /delivery/cadence/uxe/UXE171),as well “$UVM_HOME/tools/bin” should be added to $PATH (these are actually part of the execution script).
+an environment variable $UXE_HOME should be added pointing to Cadence UXE (something like /delivery/cadence/uxe/UXE171),as well “$UXE_HOME/tools/bin” should be added to $PATH (these are actually part of the execution script).
 ##### Server and Palladium communication
 Palladium is physically connected to a server, where all Palladium services are currently up and running.
 this demo should be compiled and run on that server (ssh) as some different operations system might cause problems.
