@@ -1,0 +1,27 @@
+[user]
+	email = yonatan@maladdress.com
+	name = yonatan
+[push]
+    default = simple
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[credential]
+	helper = cache --timeout 360000
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	unstage = reset HEAD --
